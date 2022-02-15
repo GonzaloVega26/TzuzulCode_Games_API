@@ -1,3 +1,4 @@
+const { response } = require("express")
 const express = require("express")
 const path = require("path")
 const GamesController = require("../controllers/gamesController")
@@ -14,29 +15,33 @@ const gamesController = new GamesController()
 
 
 //Middlewares
-/*
-router.get('/regisro',function(request,response){
-    return response.sendFile(views("index.html"))
+router.get('/games_registry',(req,resp)=>{
+    console.log()
+    return resp.sendFile(views("games_registry.html"))
 })
 
-router.post('/registro',async function(request,response){
-    //console.log(request.body) // {name: 'Tzuzul Code',email: 'mail@tzuzulcode.com',birthday: '2022-02-07'}
-    const persona = request.body
-    const user = await userController.create(persona)
-    // Nos lleva luego a la página principal
-    if(user.success){
-        return response.redirect("/")
+
+router.post('/games_registry',async function(req,resp){
+    console.log(req.body)
+    
+    const data = req.body
+    const game = await gamesController.create(data)
+    
+    if(game.success){
+        return resp.redirect("/")
     }else{
-        return response.redirect("/registro")
+        return resp.redirect("/games_registry")
     }
+    
 })
 
-router.get("/users",(req,res)=>{
-    return res.sendFile(views("users.html"))
+router.get("/games",(req,res)=>{
+    return res.sendFile(views("games.html"))
 })
-router.get("/api/users",async (req,res)=>{
-    var users = await userController.readAll()
-    return res.json(users)
+
+router.get("/api/games",async (req,res)=>{
+    var games = await gamesController.readAll()
+    return res.json(games)
 })
-*/
+
 module.exports = router

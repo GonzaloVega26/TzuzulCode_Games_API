@@ -16,7 +16,7 @@ const app = express()
 app.use(express.text()) //Raw Text
 app.use(express.json()) //JSON
 app.use(express.urlencoded({extended:true})) //Forms
-
+app.use(express.static(path.join(__dirname,"static")))
 //Using routes
 app.use(gamesRoutes)
 

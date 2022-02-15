@@ -1,15 +1,15 @@
 const database = require("../database")//Database 
 class GameConstroller{ //GameController Molde
     async create(game){
-        const results = await database.insert('games',user)
-        console.log(results)
+        const results = await database.insert('games',game)
+        
         return results
     }
 
     async readAll(){
-        const users = await database.query("SELECT * FROM games")
+        const games = await database.query("SELECT * FROM games")
 
-        return users
+        return games
     }
 }
 
