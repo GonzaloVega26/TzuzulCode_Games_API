@@ -5,45 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/games_registry_style.css" type="text/css">
 </head>
 <body>
-    <h1>Registro de Juegos</h1>
-    <form action="POST">
-        <label for="name">Title:
-            <input type="text" name="name" id="name">
-        </label>
-
-        <label for="platform">Platform:
-            <input type="text" name="platform" id="platform">
-        </label>
-
-        <label for="genre">
-            <input type="checkbox" name="genre" id="genre">
-        </label>
-
-        <label for="published">Published:
-            <input type="datetime" name="published" id="published">
-        </label>
+    <h1>Game Registry</h1>
+    <div class="container">
+        <div id="form-container">
+            <form method="POST" action="/games_registry">
+                <label for="name">Title:
+                    <input type="text" name="name" id="name">
+                </label>
+                <br>
+                <label for="platform">Platform:
+                    <input type="text" name="platform" id="platform">
+                </label>
+                <br>
+                <br>
+                
+                <div id="genre-checkbox"> 
+                    <label for="genre">Genre:</label>
+                    <br>
+                    <label for="action">Action
+                        <input type="checkbox" name="genre" id="action" value="action">
+                    </label>
+                    
+                    <label for="adventure">Adventure
+                        <input type="checkbox" name="genre" id="adventure" value="adventure">
+                    </label>
+                   
+                    <label for="puzzle">Puzzles
+                        <input type="checkbox" name="genre" id="puzzle" value="puzzle">
+                    </label>
+                    
+                    <label for="role">Role
+                        <input type="checkbox" name="genre" id="role" value="role">
+                    </label>
+                    <br>
+                    <label for="mmo">MMO
+                        <input type="checkbox" name="genre" id="mmo" value="mmo">
+                    </label>
+                   
+                    <label for="simulation">Simulation
+                        <input type="checkbox" name="genre" id="simulation" value="simulation">
+                    </label>
+                    
+                    <label for="strategy">Strategy
+                        <input type="checkbox" name="genre" id="strategy" value="strategy">
+                    </label>
+                    
+                    <label for="sports">Sports
+                        <input type="checkbox" name="genre" id="sports" value="sports">
+                    </label>
+                    <br>
+                    <br>
+                </div>
+                
         
-        <label for="pegi">PEGI:
-            <input type="text" name="pegi" id="pegi">
-        </label>
-        <label for="image_url">Front Page Url:
-            <input type="text" name="image_url" id="image_url">
-        </label>
+                <label for="published">Published:
+                    <input type="date" name="published" id="published">
+                </label>
+                <br>
+                <label for="pegi">PEGI:
+                    <input type="text" name="pegi" id="pegi">
+                </label>
+                <br>
+                <label for="image_url">Front Page Url:
+                    <input type="text" name="image_url" id="image_url">
+                </label>
+                <br>
+                
+                <button>Registrar</button>
+            </form>
+    
+    
+        </div>
+
+        </div>
         
         
-        <label for="">
-            <input type="text" name="" id="">
-        </label>
-        <label for="">
-            <input type="text" name="" id="">
-        </label>
-        <label for="">
-            <input type="text" name="" id="">
-        </label>
-
-
-    </form>
 </body>
 </html>

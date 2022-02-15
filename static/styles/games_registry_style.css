@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    font-family: arial;
+  font-size: 14sp;
+  background-color: rebeccapurple;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#form-container{
+   
+ 
+}
+
