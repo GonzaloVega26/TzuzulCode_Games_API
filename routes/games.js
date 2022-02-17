@@ -102,6 +102,7 @@ function template(data){
     <body>
         <h1>Games Update</h1>
         <a href="/">Home</a>
+        <a href="/games">Back To Games</a>
         <div class="container">
             <div id="form-container">
                 <form method="POST" action="/api/games/update/${data.id}">
@@ -120,35 +121,35 @@ function template(data){
                     <label for="genre">Genre:</label>
                     <br>
                     <label for="action">Action
-                        <input type="radio" name="genre" id="action" value="action">
+                        <input type="radio" name="genre" id="action" value="action" ${data.genre === "action"?"checked" : ""}>
                     </label>
                     
                     <label for="adventure">Adventure
-                        <input type="radio" name="genre" id="adventure" value="adventure">
+                        <input type="radio" name="genre" id="adventure" value="adventure" ${data.genre === "adventure"?"checked" : ""}>
                     </label>
                    
                     <label for="puzzle">Puzzles
-                        <input type="radio" name="genre" id="puzzle" value="puzzle">
+                        <input type="radio" name="genre" id="puzzle" value="puzzle" ${data.genre === "puzzle"?"checked" : ""}>
                     </label>
                     
                     <label for="role">Role
-                        <input type="radio" name="genre" id="role" value="role">
+                        <input type="radio" name="genre" id="role" value="role" ${data.genre === "role"?"checked" : ""}>
                     </label>
                     <br>
                     <label for="mmo">MMO
-                        <input type="radio" name="genre" id="mmo" value="mmo">
+                        <input type="radio" name="genre" id="mmo" value="mmo" ${data.genre === "mmo"?"checked" : ""}>
                     </label>
                    
                     <label for="simulation">Simulation
-                        <input type="radio" name="genre" id="simulation" value="simulation">
+                        <input type="radio" name="genre" id="simulation" value="simulation" ${data.genre === "simulation"?"checked" : ""}>
                     </label>
                     
                     <label for="strategy">Strategy
-                        <input type="radio" name="genre" id="strategy" value="strategy">
+                        <input type="radio" name="genre" id="strategy" value="strategy" ${data.genre === "strategy"?"checked" : ""}>
                     </label>
                     
                     <label for="sports">Sports
-                        <input type="radio" name="genre" id="sports" value="sports">
+                        <input type="radio" name="genre" id="sports" value="sports" ${data.genre === "sports"?"checked" : ""}>
                     </label>
                     <br>
                     <br>
@@ -179,7 +180,27 @@ function template(data){
             
     </body>
     </html>`
-
+    console.log("ohola")
+    console.log(`${data.genre === "action"?"checked" : ""} `)
+    
+    console.log(data.genre)
     return template
 }
+
+function checkRadioButton(genre){
+
+    switch(genre){
+        case "action": return true
+        case "adventure": return true
+        case "puzzle": return true
+        case "role": return true
+        case "mmo": return true
+        case "simulation": return true
+        case "strategy": return true
+        case "sports": return true
+        default: return false
+    }
+
+}
+
 module.exports = router
