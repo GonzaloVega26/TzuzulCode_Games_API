@@ -1,0 +1,22 @@
+table{
+    
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-spacing: 00.5rem;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.front-page{
+    width: 15em;
+}
+
+#list-games{
+    
+align-content: center;
+align-items: center;
+}

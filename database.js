@@ -24,9 +24,19 @@ async function query(sql,data){
     })
 }
 
+async function findOne(table,id){
+    try{
+     const game =  await query(`SELECT * FROM ${table} WHERE id = ${id}`)
+     return game
+    }catch(error){
+return error
+    }
+}
+
 //Insert Query
 async function insert(table,data){
     try{
+        
         await query(`INSERT INTO ${table}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
         return {data,success:true}
     }catch(error){
@@ -35,14 +45,30 @@ async function insert(table,data){
 }
 
 //Delete Query
-async function del(table,data){
+async function del(table,id){
     try{
-        await query(`DELETE FROM ${table} WHERE id=?`,[data])
-        return data
+        await query(`DELETE FROM ${table} WHERE id=?`,[id])
+        return id
+    }catch(error){
+        return error
+    }
+}
+
+
+async function update(table,game,id){
+    try{
+        console.log("Voy a actualizarme")
+        console.log(game)
+        console.log(id)
+        console.log(`UPDATE ${table} SET name = "${game.name}", genre = "${game.genre}", platform = "${game.platform}", published = "${game.published}", pegi = "${game.pegi}", image_url = "${game.image_url}"  WHERE id=${id}`)
+        await query(`UPDATE ${table} SET name = "${game.name}", genre = "${game.genre}", platform = "${game.platform}", published = "${game.published}", pegi = "${game.pegi}", image_url = "${game.image_url}"  WHERE id=${id}`)
+        
+        console.log("me actualice")
+        return game
     }catch(error){
         return error
     }
 }
 
 // Exportamos un objeto
-module.exports = {query,insert,del}
+module.exports = {query,insert,del,update, findOne}

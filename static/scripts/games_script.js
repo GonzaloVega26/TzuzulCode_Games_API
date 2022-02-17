@@ -5,20 +5,34 @@ fetch("/api/games")
     return respuesta.json()
 })
 .then(function(data){
-    //console.log(data) // Data es arreglo
-    var listGames = document.getElementById("list-games")
-    // users.innerHTML = `
-    //     <p>Hola</p>
-    //     <h3>mensaje...</h3>
-    // `
+    console.log(data)
+    
+    var gamesTableBody = document.getElementById("table-body")
     for(var game of data){
-        listGames.innerHTML = listGames.innerHTML + `<div class="user">
-                <p class="name">${game.name}</p>
-                <p>${game.genre}</p>
-                <p>${game.published}</p>
-                <p>${game.platform}</p>
-                <p>${game.PEGI}</p>
-                <img src="${game.image_url}">
-            </div>`
+    gamesTableBody.innerHTML += ` <tr>
+    <td>   <img src="${game.image_url}" alt="front image of game" class="front-page">  </td>
+    <td>  ${game.name}  </td>
+    <td>  ${game.platform}  </td>
+    <td>  ${game.published.toString()}  </td>
+    <td>  ${game.genre}  </td>
+    <td> <a href="/api/games/delete/${game.id}">Delete</a>
+         <a href="/api/games/update/${game.id}">Edit</a>
+
+    <!--<button onClick="eliminar(${game.id})">Delete</button>-->
+    
+    </td>
+</tr>`
     }
 })
+
+function eliminar(id){
+    fetch("/api/games/delete/"+id)
+    .then((res)=>{
+        console.log("funciono")
+    })
+}
+
+function update(id){
+    fetch("/api/games/update/"+id)
+    
+}   
